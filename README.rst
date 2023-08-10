@@ -36,22 +36,7 @@ The Test tool can be used to stop/start waf testing, stop/start bot testing, and
 
 .. figure:: assets/waap_overview.png
 
-
-Pre-requisites
-#################
-
-- F5 Distributed Cloud Account (trial is sufficient for this demo guide)
-
-*PATH 1: Manual Configuration* 
-
-- A Web browser to access the F5 Distributed Cloud console
-- The command-line interface (cli) Kubernetes management tool: `kubectl <https://kubernetes.io/docs/tasks/tools/#kubectl>`_
-
-*PATH 2: Automated Configuration*
-- Linux-based system (or on Windows run the Subsystem For Linux) with configured Ansible binaries
-- Follow the `Ansible section <#path-2-automated-config-of-the-demo-environment-configuration-via-ansible>`_ of the guide 
-
-PATH 1: Manual Config of the Demo Environment Configuration via xC Console
+Manual Config of the Demo Environment Configuration via XC Console
 ###########################################################################
 
 In order to deploy the sample application, we first need to create a Virtual kubernetes cluster within xC. Once created, we will set up and configure an HTTP load balancer with pool and origin server configuration. Follow the below steps to set up vK8s & then the HTTP Load Balancer.
