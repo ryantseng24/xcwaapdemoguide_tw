@@ -44,12 +44,12 @@ Log into F5 Distributed Cloud Console
 
 1. If you are prompted for an XC domain, enter `f5-sales-demo` and click **Next**.
 
-    <img src="assets/xc-domain.png" alt="XC Domain" width="500"/>
 .. figure:: assets/xc-domain.png
-:width: 500px
+   :width: 500px
 
 1. Login using your email and the password you just set:
 
+.. figure:: assets/xc-login.png
     <img src="assets/xc-login.png" alt="XC Login" width="500"/>
 
 1. If prompted, review and accept the **Terms of Service** and **Privacy Policy**.
@@ -62,6 +62,8 @@ Log into F5 Distributed Cloud Console
 
 1. In the URL and navigation breadcrumb, you will find the namespace that has been randomly generated for you:
 
+.. figure:: assets/xc-namespace.png
+   :width: 800px
     <img src="assets/xc-namespace.png" alt="XC Namespace" width="800"/>
 
     > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you may have a personal application namespace. If not, create one now, and note its name.
