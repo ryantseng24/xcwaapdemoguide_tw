@@ -116,7 +116,7 @@ In your UDF client (devbox-Ubuntu 20.04 LTS Desktop) environment, open the web s
    :width: 800px
 
 ```
-kubectl --kubeconfig {{ path to the credentials file  }} apply -f vk8s-manifest.yaml
+kubectl --kubeconfig {{ path to the credentials file  }} create -f https://raw.githubusercontent.com/JoshanFan/xcwaapdemoguide_tw/main/vk8s-manifest.yaml
 ```
 
 .. figure:: assets/vk8s_deploy.png
