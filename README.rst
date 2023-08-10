@@ -12,11 +12,6 @@ Use this guide and the provided sample app & tools to explore the Web App & API 
 - Load Balancer Service Policies
 - Bot mitigation
 - DoS/DDoS mitigation
-
-The guide provides two paths for setting up the baseline demo environments and configuration of xC during the demo:
-
-- *PATH 1: Manual configuration* via the web-based Distributed Cloud Console
-- *PATH 2: Automated configuration* via included  `Ansible scripts <./ansible/README.md>`_
   
 Scenario
 ####################
