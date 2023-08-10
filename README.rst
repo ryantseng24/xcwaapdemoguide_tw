@@ -110,7 +110,10 @@ The Kubeconfig will be downloaded with the default certificate expiration date. 
 
 For the next step you need to have the `kubectl tool <https://kubernetes.io/docs/tasks/tools/#kubectl>`_.
 
-In your client(UDF:devbox-Ubuntu 20.04 LTS Desktop) environment, open the command line interface (cli) and run the **kubectl** tool to execute a command to deploy the sample app. Type the path to the downloaded credentials file for the kubeconfig parameter. **vk8s-manifest.yaml** you can find in this project repository.
+.. figure:: assets/udf-client.png
+   :width: 500px
+
+In your UDF client (devbox-Ubuntu 20.04 LTS Desktop) environment, open the web shell and run the **kubectl** tool to execute a command to deploy the sample app. Type the path to the downloaded credentials file for the kubeconfig parameter. **vk8s-manifest.yaml** you can find in this project repository.
 
 ```
 kubectl --kubeconfig {{ path to the credentials file  }} apply -f vk8s-manifest.yaml
