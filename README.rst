@@ -39,7 +39,7 @@ The Test tool can be used to stop/start waf testing, stop/start bot testing, and
 Manual Config of the Demo Environment Configuration via XC Console
 ###########################################################################
 
-In order to deploy the sample application, we first need to create a Virtual kubernetes cluster within xC. Once created, we will set up and configure an HTTP load balancer with pool and origin server configuration. Follow the below steps to set up vK8s & then the HTTP Load Balancer.
+In order to deploy the sample application, we first need to create a Virtual kubernetes cluster within XC. Once created, we will set up and configure an HTTP load balancer with pool and origin server configuration. Follow the below steps to set up vK8s & then the HTTP Load Balancer.
 
 Create Virtual Kubernetes (vK8s) cluster
 *****************************************
@@ -170,16 +170,6 @@ Now let's open the website to see if it's working. You can use CNAME or your dom
 .. figure:: assets/website.png
 
 Great, your sample app should be live and you should be ready to go through the WAAP use-cases.
-
-PATH 2: Automated Config of the Demo Environment Configuration via Ansible
-#############################################################################
-
-Follow the `README <./ansible/README.md>`_ to configure the Ansible environment. You will need to configure the required Ansible Galaxy collections, tokens, and also update the *playbook.yaml* section in the beginning of the playbook that captures xC environment settings.
-
-Once configured, we recommend you review *playbook.yaml* sections, and pick those you'd like to run (such as environment setup), and comment out the rest. Of course, you can choose to run the entire playbook -- that will go through and do all of the setup & demo config steps automatically from beginning to end. 
-
-Thus, we suggest you comment out the *WAAP use-case demo steps* section and those that follow in the *playbook*, and then decide if you want to run through the WAAP use-cases below manually, or use Ansible to do the config by uncommenting the relevant sections. 
-
 
 WAAP Use-Case Demos
 ####################
