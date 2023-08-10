@@ -147,7 +147,7 @@ Then enter a name for the load balancer.
 
 .. figure:: assets/httplb_set_name.png
 
-Next we need to provide a domain name for our workload: a domain can be delegated to F5, so that Domain Name Service (DNS) entries can be created quickly in order to deploy and route traffic to our workload within seconds. In this demo we specify **star-ratings.example.com**.
+Next we need to provide a domain name for our workload: a domain can be delegated to F5, so that Domain Name Service (DNS) entries can be created quickly in order to deploy and route traffic to our workload within seconds. In this demo we specify **web-(your student number)sales-demo.f5demos.com**.
 
 If you delegated zone to XC, you can use "auto DNS manage by XC". 
 
