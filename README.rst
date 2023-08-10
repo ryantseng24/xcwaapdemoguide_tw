@@ -36,8 +36,8 @@ The Test tool can be used to stop/start waf testing, stop/start bot testing, and
 
 .. figure:: assets/waap_overview.png
 
-## Log into F5 Distributed Cloud Console
-
+Log into F5 Distributed Cloud Console
+##########################################
 1. Once you started the UDF deployment, a workflow was triggered to create a user account for you in the `f5-sales-demo` tenant. You should have received an email requesting you to set your password for this account. Follow those instructions in the email to set a password for your account.
 
     > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you can simply log in with your existing credentials.
