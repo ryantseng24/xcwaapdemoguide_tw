@@ -36,6 +36,36 @@ The Test tool can be used to stop/start waf testing, stop/start bot testing, and
 
 .. figure:: assets/waap_overview.png
 
+## Log into F5 Distributed Cloud Console
+
+1. Once you started the UDF deployment, a workflow was triggered to create a user account for you in the `f5-sales-demo` tenant. You should have received an email requesting you to set your password for this account. Follow those instructions in the email to set a password for your account.
+
+    > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you can simply log in with your existing credentials.
+
+1. If you are prompted for an XC domain, enter `f5-sales-demo` and click **Next**.
+
+    <img src="assets/xc-domain.png" alt="XC Domain" width="500"/>
+
+1. Login using your email and the password you just set:
+
+    <img src="assets/xc-login.png" alt="XC Login" width="500"/>
+
+1. If prompted, review and accept the **Terms of Service** and **Privacy Policy**.
+
+1. When asked to identify yourself, select all the checkboxes, and click **Next**.
+
+1. Click `Advanced` and click **Get Started**.
+
+1. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect**.
+
+1. In the URL and navigation breadcrumb, you will find the namespace that has been randomly generated for you:
+
+    <img src="assets/xc-namespace.png" alt="XC Namespace" width="800"/>
+
+    > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you may have a personal application namespace. If not, create one now, and note its name.
+
+1. Make a note of the above namespace, as you will need it in an upcoming step.
+
 Manual Config of the Demo Environment Configuration via XC Console
 ###########################################################################
 
