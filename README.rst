@@ -45,6 +45,8 @@ Log into F5 Distributed Cloud Console
 1. If you are prompted for an XC domain, enter `f5-sales-demo` and click **Next**.
 
     <img src="assets/xc-domain.png" alt="XC Domain" width="500"/>
+.. figure:: assets/xc-domain.png
+:width: 500px
 
 1. Login using your email and the password you just set:
 
