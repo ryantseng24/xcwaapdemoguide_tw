@@ -50,7 +50,6 @@ Log into F5 Distributed Cloud Console
 1. Login using your email and the password you just set:
 
 .. figure:: assets/xc-login.png
-    <img src="assets/xc-login.png" alt="XC Login" width="500"/>
 
 1. If prompted, review and accept the **Terms of Service** and **Privacy Policy**.
 
@@ -64,7 +63,6 @@ Log into F5 Distributed Cloud Console
 
 .. figure:: assets/xc-namespace.png
    :width: 800px
-    <img src="assets/xc-namespace.png" alt="XC Namespace" width="800"/>
 
     > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you may have a personal application namespace. If not, create one now, and note its name.
 
