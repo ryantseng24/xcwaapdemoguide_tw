@@ -27,14 +27,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 *測試工具*: 基於 Web 的服務，包含了專門用於測試**部署的示範應用程式**狀態的腳本和工具。
 
-**NOTE: the tool is a utility for this WAAP Demo Guide only, 
-it will only accept a URL with a valid Star Ratings sample app deployment,
-and this deployment must be hosted on F5 Distributed Cloud (hostname ending in '.ac.vh.ves.io'). 
-This tool cannot be used to run tests on any other website / web app outside of this Demo Guide.**
-
 **注意：此工具僅用於此WAAP演示指南，僅接受包含有效的 Star Ratings 示範應用程式部署的 URL，並且此部署必須托管在 F5 Distributed Cloud 上（主機名以'.ac.vh.ves.io'結尾）。此工具無法用於在此演示指南以外的任何其他網站/網頁應用程式上運行測試。**
-
-The Test tool can be used to stop/start waf testing, stop/start bot testing, and check WAAP / Bot Defense protection status. In the scope of this guide is to create an HTTP load balancer without a domain name, in order to avoid issues with custom domains outside of the auto-generated .ac.vh.ves.io host.
 
 在這個指南的範圍內，測試工具可用於啟動/停止 WAF 測試、啟動/停止機器人測試，以及檢查 WAAP / Bot Defense 的保護狀態。
 
