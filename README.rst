@@ -62,33 +62,33 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 9. 記下上述 Namespace，因為您將在隨後的步驟中需要它。
 
-Set up the HTTP Load Balancer
+設置 HTTP 負載平衡器
 ******************************
 
-Next, we will need to make our sample app workload accessible by configuring HTTP Load Balancing settings for our app. We will create an origin pool for the services. Origin pools consist of endpoints and clusters, as well as routes and advertising policies that are required to make the application available to the internet.
+接下來，我們需要通過配置我們應用程式的 HTTP 負載平衡設置，使我們的示範應用程式工作負載可訪問。我們將為服務創建一個源池。源池包括端點、叢集、路由和宣告策略，這些都是使應用程式可用於網際網路所需的元素。
 
-Back in the F5 Distributed Cloud Console navigate to  the **Multi-Cloud App Connect** service in the service menu. 
+返回到 F5 Distributed Cloud 控制台，導航到服務選單中的**Multi-Cloud App Connect**服務。
 
 .. figure:: assets/load_balancer_navigate.png
    :width: 600px
 
-Select **HTTP Load Balancers**.
+選擇 **HTTP Load Balancers**。
 
 .. figure:: assets/load_balancer_navigate_menu.png
    :width: 500px
 
-Click the **Add HTTP Load Balancer** button to open the form of HTTP Load Balancer creation.
+點擊**Add HTTP Load Balancer** 按鈕以打開 HTTP 負載平衡器創建表單。
 
 .. figure:: assets/load_balancer_create_click.png
    :width: 600px
 
-Then enter a name for the load balancer.
+接著輸入負載平衡器的名稱。
 
 .. figure:: assets/httplb_set_name.png
 
-Next we need to provide a domain name for our workload: a domain can be delegated to F5, so that Domain Name Service (DNS) entries can be created quickly in order to deploy and route traffic to our workload within seconds. In this demo we specify **web-(your student number).sales-demo.f5demos.com**.
+接下來，我們需要為我們的工作負載提供一個域名：域名可以委派給 F5，以便可以快速創建域名服務（DNS）紀錄，加速部署和路由流量到我們的工作負載。在這個演示中，我們指定**star-ratings-(您的學生編號).sales-demo.f5demos.com**。
 
-The delegated domain has already been set up in advance, you can use "auto DNS manage by XC". 
+委派的域名已事先設定好，您可以使用"auto DNS manage by XC"。
 
 .. figure:: assets/httplb_set_domain.png
 
