@@ -25,7 +25,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 *Docker 容器應用程式*: 包含了 Star Ratings 應用程式，由一個簡單的後端服務組成，該服務公開了一個 API，以及一個使用該 API 的前端。
 
-*測試工具*: 基於 Web 的服務，包含了專門用於測試 **部署的示範應用程式**狀態的腳本和工具。
+*測試工具*: 基於 Web 的服務，包含了專門用於測試 **部署的示範應用程式** 狀態的腳本和工具。
 
 **注意：此工具僅用於此WAAP演示指南，僅接受包含有效的 Star Ratings 示範應用程式部署的 URL，並且此部署必須托管在 F5 Distributed Cloud 上（主機名以'.ac.vh.ves.io'結尾）。此工具無法用於在此演示指南以外的任何其他網站/網頁應用程式上運行測試。**
 
@@ -37,7 +37,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 ##########################################
 1. 一旦您啟動了 UDF 部署，就會觸發一個工作流程，為您在 f5-sales-demo 租戶中創建一個用戶帳戶。您應該已經收到一封電子郵件，要求您設定此帳戶的密碼。按照電子郵件中的說明設置您帳戶的密碼。
 
-2. 如果系統要求您輸入 XC 租戶域名，請輸入f5-sales-demo並點擊**Next**。
+2. 如果系統要求您輸入 XC 租戶域名，請輸入f5-sales-demo並點擊 **Next** 。
 
 .. figure:: assets/xc-domain.png
    :width: 600px
@@ -47,13 +47,13 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 .. figure:: assets/xc-login.png
    :width: 600px
 
-4. 如果系統要求，請查看並接受**Terms of Service**和**Privacy Policy**。
+4. 如果系統要求，請查看並接受 **Terms of Service** 和 **Privacy Policy** 。
 
 5. 當要求您識別自己時，選中所有核取方塊，然後點擊**Next**。
 
-6. 點擊**Advanced**，然後點擊**Get Started**。
+6. 點擊 **Advanced** ，然後點擊 **Get Started** 。
 
-7. 一旦您成功登入租戶，導航到**Multi-Cloud App Connect**。
+7. 一旦您成功登入租戶，導航到 **Multi-Cloud App Connect** 。
 
 8. 在 URL 中，您將找到為您隨機生成的 Namespace：
 
@@ -67,7 +67,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 接下來，我們需要通過配置我們應用程式的 HTTP 負載平衡設置，使我們的示範應用程式工作負載可訪問。我們將為服務創建一個源池。源池包括端點、叢集、路由和宣告策略，這些都是使應用程式可用於網際網路所需的元素。
 
-返回到 F5 Distributed Cloud 控制台，導航到服務選單中的**Multi-Cloud App Connect**服務。
+返回到 F5 Distributed Cloud 控制台，導航到服務選單中的 **Multi-Cloud App Connect** 服務。
 
 .. figure:: assets/load_balancer_navigate.png
    :width: 600px
@@ -77,7 +77,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 .. figure:: assets/load_balancer_navigate_menu.png
    :width: 500px
 
-點擊**Add HTTP Load Balancer** 按鈕以打開 HTTP 負載平衡器創建表單。
+點擊 **Add HTTP Load Balancer** 按鈕以打開 HTTP 負載平衡器創建表單。
 
 .. figure:: assets/load_balancer_create_click.png
    :width: 600px
@@ -86,7 +86,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_set_name.png
 
-接下來，我們需要為我們的工作負載提供一個域名：域名可以委派給 F5，以便可以快速創建域名服務（DNS）紀錄，加速部署和路由流量到我們的工作負載。在這個演示中，我們指定**star-ratings-(您的學生編號).sales-demo.f5demos.com**。
+接下來，我們需要為我們的工作負載提供一個域名：域名可以委派給 F5，以便可以快速創建域名服務（DNS）紀錄，加速部署和路由流量到我們的工作負載。在這個演示中，我們指定 **star-ratings-(您的學生編號).sales-demo.f5demos.com** 。
 
 委派的域名已事先設定好，您可以使用"auto DNS manage by XC"。
 
