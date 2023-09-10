@@ -13,26 +13,30 @@
 - 機器人緩解
 - DoS/DDoS 緩解
   
-Scenario
+情境
 ####################
-We’ll use a representative customer app scenario: a Star Ratings application which collects user ratings and reviews/comments on various items (eCommerce, customer service use-cases, etc.). This app is running on Kubernetes, and can be deployed on any cloud, but for the purposes of the demo guide we will deploy it on xC virtual Kubernetes (vK8s) and protect it with xC WAAP.
+我們將以一個典型的客戶應用情境為例：一個星級評分應用程式。這個應用程式允許用戶對各種物品（例如電子商務產品或客戶服務）進行評分和評論。該應用程式運行在 Kubernetes 容器平台上，可以部署在各種雲端環境中。然而，為了本次演示指南的目的，我們將使用預先在 XC 虛擬 Kubernetes（vK8s）上部署的應用程式，並使用 XC WAAP 進行保護。
 
-Scenario Architecture
+情境架構
 #######################
-The xC WAAP is a set of managed security services which provides a holistic set of protection for distributed app services. In our scenario the app services are deployed across multiple vK8s pods in different xC vK8s regions served by F5 Global PoPs in order to represent a distributed workload; the same model would apply to any similar deployment on any cloud(s).
+F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務提供全面的保護。在我們的情境中，應用程式服務部署在不同 XC vK8s 區域的多個 vK8s pod 上，由 F5 全球 PoP 提供服務，以表示分散的工作負載；同樣的模型適用於在任何雲端上進行類似部署。
 
-The demo is intended to be self-sufficient as a quick way to onramp onto xC platform with a typical sample app deployed in a docker container, and managed via xC services. A separate custom-built "utility" tools service is also included, which provides the tooling that generates simulated user traffic as well as attacks (such as WAF or Bot) to help illustrate different WAAP use-cases. 
+這個實驗的目的是透過在 Docker 容器中部署一個典型的範例應用程式，再透過 XC 服務進行管理，以自給自足的方式快速熟悉 XC 平台。同時還包括一個單獨特制的"實用工具"服務，該服務提供生成模擬用戶流量和攻擊（如 WAF 或機器人）所需的工具，以幫助說明不同的 WAAP 使用情境。
 
-*App docker container*: contains the Start Ratings app that consists of a simple backend service that exposes and API, and a front-end that consumes the API. 
+*Docker 容器應用程式*: 包含了 Star Ratings 應用程式，由一個簡單的後端服務組成，該服務公開了一個 API，以及一個使用該 API 的前端。
 
-*Test Tool*: web-based service that contains purpose-built scripts & utilities for testing the status of the WAAP for the **deployed sample app** only.
+*測試工具*: 基於 Web 的服務，包含了專門用於測試**部署的示範應用程式**狀態的腳本和工具。
 
 **NOTE: the tool is a utility for this WAAP Demo Guide only, 
 it will only accept a URL with a valid Star Ratings sample app deployment,
 and this deployment must be hosted on F5 Distributed Cloud (hostname ending in '.ac.vh.ves.io'). 
 This tool cannot be used to run tests on any other website / web app outside of this Demo Guide.**
 
+**注意：此工具僅用於此WAAP演示指南，僅接受包含有效的 Star Ratings 示範應用程式部署的 URL，並且此部署必須托管在 F5 Distributed Cloud 上（主機名以'.ac.vh.ves.io'結尾）。此工具無法用於在此演示指南以外的任何其他網站/網頁應用程式上運行測試。**
+
 The Test tool can be used to stop/start waf testing, stop/start bot testing, and check WAAP / Bot Defense protection status. In the scope of this guide is to create an HTTP load balancer without a domain name, in order to avoid issues with custom domains outside of the auto-generated .ac.vh.ves.io host.
+
+在這個指南的範圍內，測試工具可用於啟動/停止 WAF 測試、啟動/停止機器人測試，以及檢查 WAAP / Bot Defense 的保護狀態。
 
 .. figure:: assets/waap_overview.png
 
