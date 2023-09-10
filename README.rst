@@ -29,38 +29,38 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 **注意：此工具僅用於此WAAP演示指南，僅接受包含有效的 Star Ratings 示範應用程式部署的 URL，並且此部署必須托管在 F5 Distributed Cloud 上（主機名以'.ac.vh.ves.io'結尾）。此工具無法用於在此演示指南以外的任何其他網站/網頁應用程式上運行測試。**
 
-在這個指南的範圍內，測試工具可用於啟動/停止 WAF 測試、啟動/停止機器人測試，以及檢查 WAAP / Bot Defense 的保護狀態。
+在這個指南的範圍內，測試工具可用於啟動/停止 WAF 測試、機器人測試，以及檢查 WAAP / Bot Defense 的保護狀態。
 
 .. figure:: assets/waap_overview.png
 
-Log into F5 Distributed Cloud Console
+登入 F5 Distributed Cloud 控制台
 ##########################################
-1. Once you started the UDF deployment, a workflow was triggered to create a user account for you in the `f5-sales-demo` tenant. You should have received an email requesting you to set your password for this account. Follow those instructions in the email to set a password for your account.
+1. 一旦您啟動了 UDF 部署，就會觸發一個工作流程，為您在 f5-sales-demo 租戶中創建一個用戶帳戶。您應該已經收到一封電子郵件，要求您設定此帳戶的密碼。按照電子郵件中的說明設置您帳戶的密碼。
 
-2. If you are prompted for an XC domain, enter `f5-sales-demo` and click **Next**.
+2. 如果系統要求您輸入 XC 租戶域名，請輸入f5-sales-demo並點擊**下一步**。
 
 .. figure:: assets/xc-domain.png
    :width: 600px
 
-3. Login using your email and the password you just set:
+3. 使用您的電子郵件和剛剛設定的密碼登入：
 
 .. figure:: assets/xc-login.png
    :width: 600px
 
-4. If prompted, review and accept the **Terms of Service** and **Privacy Policy**.
+4. 如果系統要求，請查看並接受**服務條款**和**隱私政策**。
 
-5. When asked to identify yourself, select all the checkboxes, and click **Next**.
+5. 當要求您識別自己時，選中所有核取方塊，然後點擊**下一步**。
 
-6. Click `Advanced` and click **Get Started**.
+6. 點擊`進階`，然後點擊**開始**。
 
-7. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect**.
+7. 一旦您成功登入租戶，導航到**Multi-Cloud App Connect**。
 
-8. In the URL and navigation breadcrumb, you will find the namespace that has been randomly generated for you:
+8. 在 URL 中，您將找到為您隨機生成的命名空間：
 
 .. figure:: assets/xc-namespace.png
    :width: 800px
 
-9. Make a note of the above namespace, as you will need it in an upcoming step.
+9. 記下上述命名空間，因為您將在隨後的步驟中需要它。
 
 Manual Config of the Demo Environment Configuration via XC Console
 ###########################################################################
