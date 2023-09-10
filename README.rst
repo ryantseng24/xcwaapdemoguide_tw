@@ -37,7 +37,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 ##########################################
 1. 一旦您啟動了 UDF 部署，就會觸發一個工作流程，為您在 f5-sales-demo 租戶中創建一個用戶帳戶。您應該已經收到一封電子郵件，要求您設定此帳戶的密碼。按照電子郵件中的說明設置您帳戶的密碼。
 
-2. 如果系統要求您輸入 XC 租戶域名，請輸入f5-sales-demo並點擊**下一步**。
+2. 如果系統要求您輸入 XC 租戶域名，請輸入f5-sales-demo並點擊**Next**。
 
 .. figure:: assets/xc-domain.png
    :width: 600px
@@ -47,78 +47,20 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 .. figure:: assets/xc-login.png
    :width: 600px
 
-4. 如果系統要求，請查看並接受**服務條款**和**隱私政策**。
+4. 如果系統要求，請查看並接受**Terms of Service**和**Privacy Policy**。
 
-5. 當要求您識別自己時，選中所有核取方塊，然後點擊**下一步**。
+5. 當要求您識別自己時，選中所有核取方塊，然後點擊**Next**。
 
-6. 點擊`進階`，然後點擊**開始**。
+6. 點擊**Advanced**，然後點擊**Get Started**。
 
 7. 一旦您成功登入租戶，導航到**Multi-Cloud App Connect**。
 
-8. 在 URL 中，您將找到為您隨機生成的命名空間：
+8. 在 URL 中，您將找到為您隨機生成的 Namespace：
 
 .. figure:: assets/xc-namespace.png
    :width: 800px
 
-9. 記下上述命名空間，因為您將在隨後的步驟中需要它。
-
-Manual Config of the Demo Environment Configuration via XC Console
-###########################################################################
-
-In order to deploy the sample application, we first need to create a Virtual kubernetes cluster within XC. Once created, we will set up and configure an HTTP load balancer with pool and origin server configuration. Follow the below steps to set up vK8s & then the HTTP Load Balancer.
-
-Create Virtual Kubernetes (vK8s) cluster
-*****************************************
-
-Once logged in the F5 Distributed Cloud Console, navigate to **Distributed Apps**:
-
-.. figure:: assets/home_dist_apps.png
-
-Then proceed to **Virtual K8s** and click the **Add Virtual K8s** button. This will open the creation form. 
-
-.. figure:: assets/vk8s_create.png
-
-Now let's fill in the form. First, give the vK8s a name.
-
-.. figure:: assets/vk8s_cluster_name.png
-
-And then click the **Add Item** button to assign Virtual Sites. Vsite Ref is the virtual-site reference of locations on the F5 Global Network where vK8s will be instantiated. 
-
-.. figure:: assets/vk8s_cluster_vsite_ref.png
-
-Check the default virtual site for our vK8s - **ves-io-all-res**. It covers all regional edge sites across F5 Application Delivery Network (ADN).  
-
-.. figure:: assets/vk8s_cluster_vsite_selected.png
-
-And then click **Save and Exit** to complete creating the vK8s cluster in all F5 Distributed Cloud Regional Edge (RE) sites.
-
-.. figure:: assets/vk8s_save_and_exit.png
-
-The process of creating a vK8s cluster takes just a minute, and after that you will be all set to deploy and distribute app workloads onto this new Kubernetes infrastructure. There are two ways to deploy into F5 Distributed Cloud services: using the User Interface (UI) with F5 Distributed Cloud Console or with a Command Line Interface (CLI) via Kubectl. In this guide we will use **Kubectl**.
-
-First, we will need a kubeconfig file for our cluster. Kubeconfig stores information about clusters, users, namespaces, and authentication mechanisms. To get the Kubeconfig, open the drop-down menu and select **Kubeconfig** to download it.     
-
-.. figure:: assets/vk8s_kubeconfig.png
-
-The Kubeconfig will be downloaded with the default certificate expiration date. Select date and press **Download Credential**.
-
-.. figure:: assets/vk8s_kubeconfig_download.png
-   :width: 500px
-
-For the next step you need to have the `kubectl tool <https://kubernetes.io/docs/tasks/tools/#kubectl>`_.
-
-In your UDF client (devbox-Ubuntu 20.04 LTS Desktop) environment, open the web shell and run the **kubectl** tool to execute a command to deploy the sample app. Type the path to the downloaded credentials file for the kubeconfig parameter. **vk8s-manifest.yaml** you can find in this project repository.
-
-.. figure:: assets/udf-client.png
-   :width: 800px
-
-```
-kubectl --kubeconfig {{ path to the credentials file  }} create -f https://raw.githubusercontent.com/JoshanFan/xcwaapdemoguide_tw/main/vk8s-manifest.yaml
-```
-
-.. figure:: assets/kubectl.png
-   :width: 600px
-
+9. 記下上述 Namespace，因為您將在隨後的步驟中需要它。
 
 Set up the HTTP Load Balancer
 ******************************
