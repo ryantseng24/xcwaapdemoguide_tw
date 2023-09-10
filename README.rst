@@ -5,13 +5,13 @@
 
 目標
 ####################
-使用本指南和提供的示範應用程式和工具，探索F5 Distributed Cloud平台（XC）的Web應用程式和API保護（WAAP）功能。這將幫助您入門WAAP的幾個使用案例：
+使用本指南和提供的示範應用程式和工具，探索 F5 Distributed Cloud (XC)的 Web 應用程式和 API 保護功能 (WAAP)。這將幫助您入門 WAAP 的幾個使用案例：
 
-- Web應用程式防火牆（WAF）
-- API發現和保護
+- Web 應用程式防火牆 (WAF)
+- API 發現和保護
 - 負載平衡器服務策略
 - 機器人緩解
-- DoS/DDoS緩解
+- DoS/DDoS 緩解
   
 Scenario
 ####################
