@@ -116,17 +116,17 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 接下來，我們需要配置源站服務監聽的埠號。在這個 LAB 中，請使用 8080 埠。
 
-.. figure:: assets/httplb_pool_port.png
+.. figure:: assets/httplb_pool_port2.png
 
-Then just click **Continue** to move on.
+然後只需點擊 **Continue** 以繼續。
 
 .. figure:: assets/httplb_pool_continue.png
 
-Once done, click **Apply** to apply the origin pool to the load balancer configuration. This will return to the load balancer configuration form.
+完成後，點擊 **Apply** 以將源池應用於負載平衡器配置。這將返回到負載平衡器配置表單。
 
 .. figure:: assets/httplb_pool_confirm.png
 
-Take a look at the load balancer configuration and finish creating it by clicking **Save and Exit**.
+查看負載平衡器配置，然後點擊 **Save and Exit** 以完成創建。
 
 .. figure:: assets/httplb_save_and_exit.png
 
