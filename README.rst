@@ -130,7 +130,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_save_and_exit.png
 
-為了生成流量並對我們的應用程式進行攻擊，我們需要一個CNAME記錄。對於本指南的目的，您可以使用如下圖所示的生成的CNAME值。
+為了生成流量並對我們的應用程式進行攻擊，我們需要一個可以透過網際網路存取服務的 FQDN 或是 IP。對於本指南的目的，您可以使用如下圖所示的生成的 CNAME 值。
 
 .. figure:: assets/httplb_cname.png
 
