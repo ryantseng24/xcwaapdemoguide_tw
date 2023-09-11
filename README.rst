@@ -92,19 +92,19 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_set_domain.png
 
-After that let's create a new origin pool, which will be used in our load balancer. The origin pools are a mechanism to configure a set of endpoints grouped together into a resource pool that is used in the load balancer configuration. Click **Add Item** to open the pool creation form.
+之後，讓我們創建一個新的源池，它將用於我們的負載平衡器。源池是將一組端點配置為一個資源池，該資源池用於負載平衡器配置。點擊 **Add Item** 以打開源池創建表單。
 
 .. figure:: assets/httplb_pool_add.png
 
-Then open the drop-down menu and click **Add Item**.
+然後打開下拉選單，點擊 **Add Item** 。
 
 .. figure:: assets/httplb_pool_add_create.png
 
-To configure the origin pool we'll add a pool name, followed by a set of config options for the pool. First, let's give this pool a name. 
+首先，讓我們給這個池一個名稱。
 
 .. figure:: assets/httplb_pool_name.png
 
-Now click **Add Item** to start configuring an origin server.
+現在點擊 **Add Item** 以開始新增一個源站伺服器
 
 .. figure:: assets/httplb_pool_origin_add.png
 
@@ -112,7 +112,7 @@ Let's now configure origin server. First open the drop-down menu to specify the 
 Then specify service name indicating the service we deployed in the corresponding namespace. Please note that it follows the format of **servicename.namespace**. We use **star-ratings-app.yournamespace** for this demo where **yournamespace** is the name of your namespace. 
 After that we need to select the **Virtual Site** type and select **shared/ves-io-all-res**. 
 Finally, the last step to configure the origin server is specifying network on the site. Select **vK8s Network on Site**.
-Complete by clicking **Apply**.
+完成後，點擊 **Apply** 。
 
 .. figure:: assets/httplb_pool_origin_configure.png
 
