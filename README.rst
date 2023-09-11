@@ -109,14 +109,14 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 .. figure:: assets/httplb_pool_origin_add.png
 
 現在讓我們配置源伺服器。首先打開下拉選單，指定源伺服器的類型。對於這個 LAB，請選擇 **Public DNS Name of Origin Server**。
-然後，指定源站 DNS 名稱 `star-ratings-app.f5xc.one`(已提前部建好的應用服務)。
+然後，指定源站 DNS 名稱 **star-ratings-app.f5xc.one** (已提前部建好的應用服務)。
 完成後，點擊 **Apply** 。
 
 .. figure:: assets/httplb_pool_origin_configure2.png
 
 接下來，我們需要配置源站服務監聽的埠號。在這個 LAB 中，請使用 8080 埠。
 
-.. figure:: assets/httplb_pool_port2.png
+.. figure:: assets/httplb_pool_port3.png
 
 然後只需點擊 **Continue** 以繼續。
 
@@ -134,11 +134,11 @@ We will need a CNAME record in order to generate traffic and to run attacks on o
 
 .. figure:: assets/httplb_cname.png
 
-Now let's open the website to see if it's working. You can use CNAME or your domain name to do that.
+現在讓我們打開網站來檢查它是否正常運作。您可以使用 CNAME 或您的域名來執行此操作。
 
 .. figure:: assets/website.png
 
-Great, your sample app should be live and you should be ready to go through the WAAP use-cases.
+太好了，您的示範應用程式已經上線，您現在應該已經準備好進行 WAAP 使用案例的操作了。
 
 WAAP Use-Case Demos
 ####################
