@@ -108,10 +108,8 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_pool_origin_add.png
 
-Let's now configure origin server. First open the drop-down menu to specify the type of origin server. For this demo select **K8s Service Name of Origin Server on given Sites**. 
-Then specify service name indicating the service we deployed in the corresponding namespace. Please note that it follows the format of **servicename.namespace**. We use **star-ratings-app.yournamespace** for this demo where **yournamespace** is the name of your namespace. 
-After that we need to select the **Virtual Site** type and select **shared/ves-io-all-res**. 
-Finally, the last step to configure the origin server is specifying network on the site. Select **vK8s Network on Site**.
+現在讓我們配置源伺服器。首先打開下拉菜單，指定源伺服器的類型。對於這個演示，請選擇 **Public DNS Name of Origin Server**。
+然後，指定源站 DNS 名稱 `star-ratings-app.f5xc.one`。
 完成後，點擊 **Apply** 。
 
 .. figure:: assets/httplb_pool_origin_configure2.png
