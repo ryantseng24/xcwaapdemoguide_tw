@@ -114,7 +114,7 @@ After that we need to select the **Virtual Site** type and select **shared/ves-i
 Finally, the last step to configure the origin server is specifying network on the site. Select **vK8s Network on Site**.
 完成後，點擊 **Apply** 。
 
-.. figure:: assets/httplb_pool_origin_configure.png
+.. figure:: assets/httplb_pool_origin_configure2.png
 
 Next we need to configure the port (the end point service/workload available on this port). In this demo it's Port **8080**.
 
