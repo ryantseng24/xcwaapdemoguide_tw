@@ -108,13 +108,13 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_pool_origin_add.png
 
-現在讓我們配置源伺服器。首先打開下拉菜單，指定源伺服器的類型。對於這個演示，請選擇 **Public DNS Name of Origin Server**。
-然後，指定源站 DNS 名稱 `star-ratings-app.f5xc.one`。
+現在讓我們配置源伺服器。首先打開下拉選單，指定源伺服器的類型。對於這個 LAB，請選擇 **Public DNS Name of Origin Server**。
+然後，指定源站 DNS 名稱 `star-ratings-app.f5xc.one`(已提前部建好的應用服務)。
 完成後，點擊 **Apply** 。
 
 .. figure:: assets/httplb_pool_origin_configure2.png
 
-Next we need to configure the port (the end point service/workload available on this port). In this demo it's Port **8080**.
+接下來，我們需要配置源站服務監聽的埠號。在這個 LAB 中，請使用 8080 埠。
 
 .. figure:: assets/httplb_pool_port.png
 
