@@ -130,7 +130,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_save_and_exit.png
 
-We will need a CNAME record in order to generate traffic and to run attacks on our app. For the purposes of this guide, you can use the generated CNAME value as shown in the image below. However, should you want to use your own domain, you can; there are several ways that you can delegate your DNS domain to F5 Distributed Cloud Services. A reference on how to do so is here:  `Domain Delegation <https://docs.cloud.f5.com/docs/how-to/app-networking/domain-delegation>`_.
+為了生成流量並對我們的應用程式進行攻擊，我們需要一個CNAME記錄。對於本指南的目的，您可以使用如下圖所示的生成的CNAME值。
 
 .. figure:: assets/httplb_cname.png
 
