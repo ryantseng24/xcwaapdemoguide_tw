@@ -135,7 +135,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 現在讓我們打開網站來檢查它是否正常運作。您可以使用 CNAME 或您的域名來執行此操作。
 
-.. figure:: assets/website_v2.png
+.. figure:: assets/website.png
 
 太好了，您的示範應用程式已經上線，您現在應該已經準備好進行 WAAP 使用案例的操作了。
 
