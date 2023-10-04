@@ -142,111 +142,112 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 WAAP Use-Case Demos
 ####################
 
-At this point, whether you used the manual approach in *PATH 1* or Ansible automation in *PATH 2*, you should have a working sample app. You can now start running through the WAAP use-cases. Again, you can follow the steps below to proceed with the use-cases manually, or you may choose to use corresponding sections in the Ansible guide to automate what's done manually. 
+在此階段，無論您是選擇在*路徑1*中使用手動方式，或在*路徑2*中使用Ansible自動化，您應該都已經有一個運作中的範例應用程式。您現在可以開始執行WAAP的使用案例。再次提醒，您可以選擇手動跟隨以下步驟進行這些使用案例，或者選擇在Ansible指南中使用對應的部分來自動執行手動完成的步驋。
 
-APP Protection
+應用程式保護
 **************
 
-A skilled attacker will use automation and multiple tools to explore various attack vectors. From simple Cross-Site Scripting (XSS) that leads to website defacement to more complex zero-day vulnerabilities, the range of attacks continues to expand and there isn’t always a signature to match!
+熟練的攻擊者將使用自動化和多種工具來探索各種攻擊向量。從導致網站被篡改的簡單跨站腳本攻擊（XSS）到更複雜的零日漏洞，攻擊範圍持續擴大，並且並非所有攻擊都有對應的簽名！
 
-The combination of signatures, threat intelligence, behavioral analysis, and machine learning capabilities built into F5 Distributed Cloud WAF enables detection of known attacks and mitigation of emerging threats from potentially malicious users. This provides effective and easy-to-operate security for apps delivered across clouds and architectures.
+F5分散式雲端WAF內置的簽名、威脅情報、行為分析和機器學習能力的結合，使其能夠檢測已知攻擊並緩解來自可能惡意用戶的新興威脅。這為跨雲端和架構提供的應用程式提供了有效且易於操作的安全性。
 
-In the **App Protection** use-case we will see how easy it is to create an effective WAF policy using F5’s Distributed Cloud to quickly secure our application front-end. We already have user traffic of our sample app flowing through the HTTP Load Balancer within F5 Distributed Cloud, routing requests to the app instance(s) running in Amazon AWS. To protect this traffic, we will edit the HTTP Load Balancer we created earlier by configuring App Firewall. 
+在**應用程式保護**使用案例中，我們將看到如何使用F5的分散式雲端來創建有效的WAF政策，快速保護我們的應用程式前端。我們已經有了我們範例應用程式的用戶流量，這些流量透過F5分散式雲端內的HTTP負載平衡器流動，將請求路由到在Amazon AWS中運行的應用程式實例。為了保護這些流量，我們將編輯我們早先創建的HTTP負載平衡器，並配置App Firewall。
 
-First, let's test our app and see if it's vulnerable to attacks. For that we are going to use Test Tool which sends attacks to the apps based on its CNAME. 
+首先，讓我們測試我們的應用程式，看看它是否容易受到攻擊。為此，我們將使用測試工具，該工具根據其CNAME向應用程式發送攻擊。
 
-Follow the link `<https://test-tool.sr.f5-cloud-demo.com>`_, then paste the CNAME copied one step before and click **SEND ATTACKS**. In the box under it you will see attack types and site status - our app is vulnerable to them. Now let's go ahead and protect the app by creating and configuring Firewall. Then we will test the app once again to see the result of protection.
+請按照以下連結 `<https://test-tool.sr.f5-cloud-demo.com>`_，然後粘貼一步之前複製的CNAME，並點擊 **發送攻擊**。在它下面的框中，你將看到攻擊類型和站點狀態--我們的應用程式對它們是脆弱的。現在讓我們開始保護應用程式，創建和配置防火牆。然後我們將再次測試應用程式，以查看保護的結果。
 
 .. figure:: assets/test_waf_1.png
 
-Back in the F5 Distributed Cloud Console, open the service menu and navigate to **Web App & API Protection**. 
+回到F5分散式雲端控制台，打開服務菜單並導航到**Web應用程式和API保護**。
 
 .. figure:: assets/waf_navigate.png
    :width: 600px
 
-Then proceed to the **HTTP Load Balancers** section.
+然後前往**HTTP負載平衡器**部分。
 
 .. figure:: assets/waf_navigate_menu.png
    :width: 500px
 
-Open HTTP Load Balancer properties and select **Manage Configuration**.
+打開HTTP負載平衡器屬性並選擇**管理配置**。
 
 .. figure:: assets/httplb_popup.png
    :width: 850px
 
-Click **Edit Configuration** in the right top corner to start editing the HTTP load balancer. 
+在右上角點擊**編輯配置**以開始編輯HTTP負載平衡器。
 
 .. figure:: assets/httplb_edit.png
 
-In the **Web Application Firewall** section first enable **App Firewall** in the drop-down menu, and then click **Add Item** to configure a new WAF object.
+在**Web應用程式防火牆**部分，首先在下拉菜單中啟用**App防火牆**，然後點擊**新增項目**以配置新的WAF對象。
 
 .. figure:: assets/waf_create.png
 
-First, give the Firewall a name.
+首先，為防火牆取一個名稱。
 
 .. figure:: assets/waf_name.png
 
-Then specify enforcement mode in the dropdown menu. The default is **Monitoring**, meaning that the Distributed Cloud WAF service won't block any traffic but will alert on any request that is found to be violating the WAF policy. **Blocking** mode means that the Distributed Cloud WAF will take mitigation action on offending traffic. Select the **Blocking** mode option.
+然後在下拉菜單中指定強制模式。預設為**監控**，這意味著分散式雲端WAF服務不會阻擋任何流量，但會對任何被發現違反WAF政策的請求進行警告。**阻擋**模式意味著分散式雲端WAF將對觸犯的流量採取緩解行動。選擇**阻擋**模式選項。
 
 .. figure:: assets/waf_enforcement_mode.png
 
-Next, we will specify detection settings. Default settings are recommended for mitigating malicious traffic with a low false positive rate. But we will select **Custom** detection settings, in order to override and customize preset policy detection defaults. 
+
+接下來，我們將指定檢測設置。預設設置被推薦用於減輕惡意流量，並具有低假陽性率。但我們將選擇**自訂**檢測設置，以覆蓋和自訂預設的政策檢測預設值。
 
 .. figure:: assets/waf_detection_custom.png
 
-Select **Custom** attack type in the drop-down menu and proceed to specifying **Disabled Attack Types**. Select **Command Execution** attack type. Command execution is an attack against web applications that targets Operating System commands to gain access to it. 
+在下拉菜單中選擇**自訂**攻擊類型，然後進行指定**已禁用的攻擊類型**。選擇**命令執行**攻擊類型。命令執行是針對Web應用程式的攻擊，目標是操作系統命令以獲取對其的訪問。
 
 .. figure:: assets/waf_attack_types.png
 
-The next property **Signature Selection by Accuracy** allows us to disable some attack types and use different signature sets for optimal accuracy. For this demo let's enable **High, Medium and Low** accuracy signatures.
+下一個屬性**按準確性選擇簽名**允許我們禁用一些攻擊類型並使用不同的簽名集合以獲得最佳準確性。對於這個演示，讓我們啟用**高，中和低**準確性的簽名。
 
 .. figure:: assets/waf_signature.png
 
-After that we will edit Disabled Violations list. This enables detection of various violation types like malformed data and illegal filetypes. For this use-case, we will select **Custom** violations, and then specify **Bad HTTP Version**. 
+之後我們將編輯已禁用違規的列表。這可以檢測到各種類型的違規，如格式錯誤的數據和非法文件類型。對於這個使用案例，我們將選擇**自訂**違規，然後指定**錯誤的HTTP版本**。
 
 .. figure:: assets/waf_violatations.png
 
-Next we will specify blocking response page. To do that, select **Custom** and indicate **403 Forbidden** as response code. By default the Distributed Cloud WAF looks for specific query parameters like "card" or "password" to prevent potentially sensitive information such as account credentials or credit card numbers from appearing in security logs. This can be customized through a Blocking Response Page that can include a custom body in ASCII or base64.
+接下來我們將指定阻擋響應頁面。要做到這一點，選擇**自訂**並指定**403 Forbidden**作為響應碼。預設情況下，分散式雲端WAF會尋找特定的查詢參數，如"卡"或"密碼"，以防止可能的敏感信息，如帳戶憑證或信用卡號碼出現在安全日誌中。這可以通過一個可以包含ASCII或base64的自訂體的阻擋響應頁面來自訂。
 
 .. figure:: assets/waf_adv_config.png
 
-Now that we’re done with all the settings, just click **Continue**.
+現在我們已經完成所有設置，只需點擊繼續。
 
 .. figure:: assets/waf_continue.png
 
-Click **Save and Exit** to save the HTTP Load Balancer settings.
+點擊儲存並退出以儲存HTTP負載平衡器設置。
 
 .. figure:: assets/waf_save_lb.png
 
-Now we are ready to test and see if our app is still vulnerable to the attacks. Follow the link  `<https://test-tool.sr.f5-cloud-demo.com>`_, and click **SEND ATTACKS**. In the box under it you will see attack types and their statuses - they are now all blocked and our app is safe. 
+現在我們已經準備好測試並查看我們的應用程式是否仍然容易受到攻擊。按照此鏈接 <https://test-tool.sr.f5-cloud-demo.com>_，並點擊發送攻擊。在其下方的框中，您將看到攻擊類型及其狀態 - 它們現在都被阻擋，我們的應用程式是安全的。
 
 .. figure:: assets/test_waf_2.png
 
-Next let’s look at some of the visibility and security insights provided by F5 Distributed Cloud WAAP. Navigate to **Dashboards**, select **Security Dashboard** and click on our load balancer.
+接下來，讓我們看看F5分散式雲端WAAP提供的一些可見性和安全洞察。導航到儀表板，選擇安全儀表板，然後點擊我們的負載平衡器。
 
 .. figure:: assets/waf_dashboard_navigate.png
 
-Here we will see app dashboard. The dashboard provides detailed info on all the security events, including location, policy rules hit, malicious users, top attack types and other crucial information collected through F5 Distributed Cloud WAAP correlated insights.
+在這裡，我們將看到應用程式儀表板。該儀表板提供了所有安全事件的詳細信息，包括位置，政策規則命中，惡意用戶，主要攻擊類型以及通過F5分散式雲端WAAP相關洞察收集的其他關鍵信息。
 
 .. figure:: assets/waf_dashboard_events.png
 
-Now navigate to **Security Events** and then open one of the security events to drill into it. 
+現在導航到安全事件，然後打開其中一個安全事件以深入了解。
 
 .. figure:: assets/waf_requests.png
 
-Let’s look at the specifics of the **Java code injection** attack. Here we can not only see its time, origin and src IP, but also drill down to see very detailed information.
+讓我們看看Java代碼注入攻擊的具體情況。在這裡，我們不僅可以看到其時間，起源和源IP，還可以深入查看非常詳細的信息。
 
 .. figure:: assets/waf_request_details.png
 
-After having a look at the attack, it is possible to block the client. To do that, open the menu and select **Add to Blocked Clients**. 
+在查看攻擊之後，可以阻止客戶端。要做到這一點，打開菜單並選擇添加到被阻擋的客戶端。
 
 .. figure:: assets/waf_block_options.png
 
-F5 Distributed Cloud WAF provides security through Malicious User Detection as well. Malicious User Detection helps identify and rank suspicious (or potentially malicious) users. Security teams are often burdened with alert fatigue, long investigation times, missed attacks, and false positives. Retrospective security through Malicious User Detection allows security teams to filter noise and to identify actual risks and threats through actionable intelligence, without manual intervention.
+F5分散式雲端WAF也通過惡意用戶檢測提供安全性。惡意用戶檢測有助於識別和排名可疑（或可能惡意）的用戶。安全團隊經常被警報疲勞、長時間的調查、錯過的攻擊以及假陽性所困擾。通過惡意用戶檢測的回溯性安全允許安全團隊過濾噪音並通過可操作的情報識別實際風險和威脅，無需手動干預。
 
-WAF rules hit, forbidden access attempts, login failures, request and error rates -- all create a timeline of events that can suggest malicious activity. Users exhibiting suspicious behavior can be automatically blocked, and exceptions can be made through allow lists.
+WAF規則命中，禁止訪問嘗試，登錄失敗，請求和錯誤率 -- 都創建了一個事件時間線，這可能表明存在惡意活動。表現出可疑行為的用戶可以被自動阻擋，並且可以通過允許列表進行例外處理。
 
-The screenshot below represents how the malicious user can look like.
+下面的屏幕截圖表示惡意用戶可能的外觀。
 
 .. figure:: assets/waf_malicious_user.png
 
