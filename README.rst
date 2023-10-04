@@ -115,7 +115,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 接下來，我們需要配置源站服務監聽的埠號。在這個 LAB 中，請使用 8080 埠。
 
-.. figure:: assets/httplb_pool_port3.png
+.. figure:: assets/httplb_pool_port.png
 
 然後只需點擊 **Continue** 以繼續。
 
