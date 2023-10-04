@@ -2,7 +2,6 @@
 
 .. contents:: Table of Contents
 
-
 目標
 ####################
 使用本指南和提供的示範應用程式和工具，探索 F5 Distributed Cloud (XC)的 Web 應用程式和 API 保護功能 (WAAP)。這將幫助您入門 WAAP 的幾個使用案例：
@@ -23,7 +22,7 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 這個實驗的目的是透過在 Docker 容器中部署一個典型的範例應用程式，再透過 XC 服務進行管理，以自給自足的方式快速熟悉 XC 平台。同時還包括一個單獨特制的"實用工具"服務，該服務提供生成模擬用戶流量和攻擊（如 WAF 或機器人）所需的工具，以幫助說明不同的 WAAP 使用情境。
 
-*Docker 容器應用程式*: 包含了 Star Ratings 應用程式，由一個簡單的後端服務組成，該服務公開了一個 API，以及一個使用該 API 的前端。
+*Docker 容器應用程式*: 包含了 DVWA 應用程式，由一個簡單的後端服務組成。
 
 *測試工具*: 基於 Web 的服務，包含了專門用於測試 **部署的示範應用程式** 狀態的腳本和工具。
 
@@ -108,13 +107,13 @@ F5 XC WAAP 是一套基於 SaaS 的安全服務，為分佈式應用程式服務
 
 .. figure:: assets/httplb_pool_origin_add.png
 
-現在讓我們配置源伺服器。首先打開下拉選單，指定源伺服器的類型。對於這個 LAB，請選擇 **Public DNS Name of Origin Server**。
-然後，指定源站 DNS 名稱 **star-ratings-app.f5xc.one** (已提前部建好的應用服務)。
+現在讓我們配置源伺服器。首先打開下拉選單，指定源伺服器的類型。對於這個 LAB，請選擇 **Public IP of Origin Server**。
+然後，指定源站 IP 名稱 **54.157.200.74** (已提前部建好的應用服務)。
 完成後，點擊 **Apply** 。
 
 .. figure:: assets/httplb_pool_origin_configure2.png
 
-接下來，我們需要配置源站服務監聽的埠號。在這個 LAB 中，請使用 8080 埠。
+接下來，我們需要配置源站服務監聽的埠號。在這個 LAB 中，請使用 80 埠。
 
 .. figure:: assets/httplb_pool_port3.png
 
