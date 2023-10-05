@@ -255,270 +255,147 @@ WAF規則命中，禁止訪問嘗試，登錄失敗，請求和錯誤率 -- 都�
 API Protection 
 **************
 
-Protecting API resources is a critical piece of a holistic application security strategy. API Security helps us analyze and baseline normal levels of traffic, response rates, sizes and data being shared via APIs. 
+保護API資源是整體應用安全策略的關鍵部分。API安全性幫助我們分析並確定通過API共享的流量、響應率、大小和數據的正常水平。
 
-Without API protection all traffic goes directly to the server and can be harmful. Let's take a look at an attack on our sample app and then protect its API.
+如果沒有API保護，所有流量都會直接流向伺服器，這可能是有害的。讓我們來看看我們的示例應用的一次攻擊，然後保護其API。
 
-Go back to the Test Tool  `<https://test-tool.sr.f5-cloud-demo.com>`_, and switch to the **API Security in Action** tab. Then click **SEND ATTACKS**. In the box under it you will see the status which shows that API is vulnerable. Now let's go ahead and protect API.
+回到測試工具 `<https://test-tool.sr.f5-cloud-demo.com>`_，並切換到 **API 安全實踐** 頁籤。然後點擊 **發送攻擊**。在它下面的框中，你將看到顯示API存在漏洞的狀態。現在讓我們去保護API。
 
 .. figure:: assets/test_api_1.png
 
-Distributed Cloud API Security helps protect API resources based on an Open API specification, typically captured in a Swagger file. The API Security service supports the upload of an Open API specification file, which contains API routes that can be protected by the Web App Firewall, as well as methods that can be enabled and disabled. 
+分散式雲API安全性基於Open API規範來幫助保護API資源，通常在Swagger文件中捕獲。API安全服務支持上傳Open API規範文件，該文件包含可以由Web應用防火牆保護的API路由，以及可以啟用和禁用的方法。
 
-To start API protection configuration, go back to the F5 Distributed Cloud Console, select **Swagger Files** and click **Add Swagger File**. 
+要開始配置API保護，請返回到F5分散式雲控制台，選擇 Swagger文件，然後點擊 添加Swagger文件。
 
 .. figure:: assets/swagger_navigate.png
 
-Give swagger file a name and then upload it. Once it's uploaded, click **Save and Exit**.
-   
+給Swagger文件命名，然後上傳它。一旦上傳完成，點擊 保存並退出。
+
 .. figure:: assets/swagger_upload_file.png
 
-Now over to creating API Definition. Navigate to **API Definition** and then click the **Add API Definition** button.
+現在轉到創建API定義。導航到 API定義，然後點擊 添加API定義 按鈕。
 
 .. figure:: assets/api_definition_navigate.png
 
-Enter a name in the metadata section. Then go to **Swagger Specs** section and open the drop-down menu. Select the swagger spec added earlier, then click **Save and Exit** to create API definition object.
+在元數據部分輸入一個名稱。然後轉到 Swagger規範 部分並打開下拉菜單。選擇先前添加的swagger規範，然後點擊 保存並退出 以創建API定義對象。
 
 .. figure:: assets/api_definition_create.png
 
-Now we need to attach the created API definition to our HTTP load balancer. Navigate to **Load Balancers** and select **HTTP Load Balancers**. The HTTP Load Balancer we created earlier will appear. Open its menu and select **Manage Configuration**.
+現在我們需要將創建的API定義附加到我們的HTTP負載平衡器。導航到 負載平衡器 並選擇 HTTP負載平衡器。我們先前創建的HTTP負載平衡器將會出現。打開其菜單並選擇 管理配置。
 
 .. figure:: assets/api_definition_lb_popup.png
 
-Click **Edit Configuration** to start editing.
+點擊 編輯配置 開始編輯。
 
 .. figure:: assets/api_definition_lb_edit.png
 
-In the **API Protection** section enable **API Definition** and then select the API Definition created earlier. 
+在 API保護 部分啟用 API定義，然後選擇先前創建的API定義。
 
 .. figure:: assets/api_definition_select_api_def.png
 
-Now we need to a create a new Service Policy with a set of Custom Rules that will specify either an Allow or Deny rule action for specific API resources contained in our Swagger file. This approach uses the combination of Service Policies and Custom Rules to fine-tune and provide granular control over how our application API resources are protected.
+現在我們需要創建一個新的服務政策，該政策包含一套自定義規則，這些規則將為我們Swagger文件中包含的特定API資源指定允許或拒絕的規則動作。這種方法使用服務政策和自定義規則的組合來微調並提供對我們的應用程式API資源保護方式的細粒度控制。
 
-Scroll to the **Common Security Controls** section and select **Apply Specified Service Policies**. Then click **Configure**. 
+滾動到 通用安全控制 部分並選擇 應用指定的服務政策。然後點擊 配置。
 
 .. figure:: assets/api_definition_policy.png
 
-Click on the **Select Item** field and select **Add Item** option.
+在 選擇項目 欄位上點擊，並選擇 添加項目 選項。
 
 .. figure:: assets/api_definition_policy_create.png
 
-Enter a name for the policy in the metadata section and go to the **Rules** section. Select **Custom Rule List** and click **Configure**.
+在元數據部分為政策輸入一個名稱，並轉到 規則 部分。選擇 自定義規則列表 並點擊 配置。
 
 .. figure:: assets/api_definition_policy_create_rules.png
 
-Let's now add rules: click **Add Item**.
-   
+現在讓我們添加規則：點擊 添加項目。
+
 .. figure:: assets/api_definition_rule_add.png
 
-The first rule will deny all except the API. Enter a name in the metadata section and scroll down. 
+第一條規則將拒絕所有除API之外的。在元數據部分輸入一個名稱並向下滾動。
 
 .. figure:: assets/api_definition_rule_add_details.png
 
-Next configure HTTP Path. Click **Configure** in the **HTTP Path** section.
+接下來配置HTTP路徑。在 HTTP路徑 部分點擊 配置。
 
 .. figure:: assets/api_definition_rules_path.png
 
-And fill in the path - **/api/v1/** for this demo. Then click **Apply**.
+並填寫路徑 - 對於這次演示為 /api/v1/。然後點擊 應用。
 
 .. figure:: assets/api_definition_rules_prefix.png
 
-Scroll down to **Advanced Match** section and click **Configure** for the API Group Matcher field.
+滾動到 進階匹配 部分，並在API群組匹配器欄位中點擊 配置。
 
 .. figure:: assets/api_definition_rules_api_matcher.png
 
-In the API Group Matcher screen, select an exact value. 
+在API群組匹配器屏幕中，選擇一個確切的值。
 
 .. figure:: assets/api_definition_rules_matcher_select_api_def.png
 
-Tick the **Invert String Matcher** option and click **Apply** to add the matcher. 
+
+勾選 反轉字串匹配器 選項，然後點擊 應用 以添加匹配器。
 
 .. figure:: assets/api_definition_matcher_tick.png
 
- Click another **Apply** to add the rule specification. 
+點擊另一個 應用 以添加規則規範。
 
 .. figure:: assets/api_definition_policy_apply.png
 
-Click **Apply** to add the rule.
+點擊 應用 以添加規則。
 
 .. figure:: assets/api_definition_add_rule.png
 
-Create one more rule to 'allow-other' using the **Add Item** option in the rules section. 
+在規則部分使用 添加項目 選項創建一個 'allow-other' 的規則。
 
 .. figure:: assets/api_definition_second_rule.png
 
-First, enter a name in the metadata section.
+首先，在元數據部分輸入一個名稱。
    
 .. figure:: assets/api_definition_second_rule_details.png
 
-Next, select **Allow** for Action field in the Action section.
+接下來，在動作部分的動作欄位中選擇 **允許**。
 
 .. figure:: assets/api_definition_second_rule_allow.png
 
-Click **Apply** to add the rule specification.
+點擊 應用 以添加規則規範。
 
 .. figure:: assets/api_definition_second_rule_apply.png
 
-Click **Apply** to add the second rule.
+點擊 應用 以添加第二條規則。
 
 .. figure:: assets/api_definition_second_rule_add.png
 
-Take a look at the rules created and click **Apply**. 
+查看創建的規則，然後點擊 **應用**。
 
 .. figure:: assets/api_definition_rule_list_apply.png
 
-Click **Continue** to add the service policy to the load balancer and then **Apply**.
+點擊 **繼續** 以將服務政策添加到負載均衡器，然後點擊 **應用**。
 
 .. figure:: assets/api_definition_continue.png
 
 .. figure:: assets/api_definition_def_policy_apply.png
 
-The last step is to look the configuration through and save the edited HTTP load balancer. Once you click **Save and Exit** at the end, the Load Balancer will update with the API security settings and our API resources will be protected!
+最後一步是查看並保存已編輯的HTTP負載均衡器的配置。一旦在最後點擊 **保存並退出**，負載均衡器將更新API安全設置，我們的API資源將得到保護！
 
 .. figure:: assets/api_definition_lb_save.png
 
-Well done! The API of our sample Rating App is protected based on the spec in the uploaded Swagger file. Let's try and see that the access is forbidden.
+做得好！我們的示例評分應用的API根據上傳的Swagger文件中的規範得到了保護。讓我們試試看，現在應該是禁止訪問的。
 
-Go back to the Test Tool  `<https://test-tool.sr.f5-cloud-demo.com>`_, and click **SEND ATTACKS**. In the box under it we will see **protected** status, so our API is safe now.  
+回到測試工具 `<https://test-tool.sr.f5-cloud-demo.com>`_，然後點擊 **發送攻擊**。在它下面的框中，我們將看到 **受保護** 的狀態，所以我們的API現在是安全的。
 
 .. figure:: assets/test_api_2.png
 
-In cases where API specifications are not known or well documented, the F5 Distributed Cloud API Security provides a machine learning (ML)-based, dynamic API Discovery service.
+在API規範未知或文檔記載不清的情況下，F5分布式雲API安全提供了一種基於機器學習（ML）的動態API發現服務。
 
-API Discovery analyzes traffic that flows to and from API endpoints and constructs a visual graph to detail API path relationships. It may be difficult for an organization to keep track of APIs, as they typically change frequently. Over time F5 Distributed Cloud can baseline normal API behavior, usage, and methods, detecting anomalies and helping organization detect shadow APIs that bring unintended risk.
+API發現分析流向API端點的流量，並構建一個視覺圖表來詳細說明API路徑關係。對於一個組織來說，跟蹤API可能會很困難，因為它們通常會頻繁變化。隨著時間的推移，F5分布式雲可以對正常的API行為、使用和方法進行基線劃定，檢測異常，並幫助組織檢測帶來意外風險的影子API。
 
-In the screenshot below we can see the percent of requests, learned schema for a specific endpoint, and even download an automatically-generated Swagger file based on discovered APIs.
-
+在下面的截圖中，我們可以看到請求的百分比，特定端點的學習模式，甚至可以下載基於發現的API自動生成的Swagger文件。
 .. figure:: assets/api_auto_discovery.png 
 
-Bot Protection
-**************
 
-F5 Distributed Cloud Bot Defense helps us identify attacks and allow us then to easily block them! Our sample rating app could definitely benefit from Distributed Cloud Bot Defense. So let’s see how easy it actually is to set up and use the service!
-
-First let's generate some bot traffic to our app. Go back to the Test Tool  `<https://test-tool.sr.f5-cloud-demo.com>`_, and switch to the **Bot Defense in Action** tab. Click **GENERATE BOT TRAFFIC**. In the box under it we will see that all the bot traffic passed. Now let's go ahead and block it by setting up a resilient anti-automation solution that will be attached to the HTTP Load Balancer that processes the traffic to our app. We will then test it to see how Bot Protection works.
-
-.. figure:: assets/test_bot_1.png
-
-Navigate to **HTTP Load Balancers**, open the menu of the load balancer we created earlier and select **Manage Configuration**.
-
-.. figure:: assets/bot_lb_popup.png
-
-Click **Edit Configuration** to start editing the load balancer.
-
-.. figure:: assets/bot_lb_edit.png
-
-Go to the **Bot Protection** section and enable Bot Defense. The Regional Endpoint is **US** due to its closer proximity to our sample app user base. Click **Configure** to configure Bot Defense Policy.
-
-.. figure:: assets/bot_config.png
-
-Next, we need to configure an App Endpoint, which will contain the policies and actions to protect the specific resource in our app that’s used for adding ratings. To do that click **Configure**.
-
-.. figure:: assets/bot_config_endpoint.png
-
-Click **Add Item** to start adding an endpoint.
-
-.. figure:: assets/bot_config_endpoint_add.png
-
-Name the endpoint and then select HTTP Methods. Let's pick **PUT** and **POST** for this demo. Scroll down and fill in the path - **/api/v1/**.
-Then set Bot Traffic Mitigation options to **Block** action for identified bot traffic, and select **403 Forbidden** status. 
-Go ahead and click **Apply** to complete the App Endpoint setup.
-
-.. figure:: assets/bot_full_config.png
-
-We’ve just defined the policy to protect our vulnerable Rating app resource with Bot Defense enabled. Now, click **Apply** to confirm.
-
-.. figure:: assets/bot_endpoint_apply.png
-
-Click **Apply** to apply the configured Bot Defense Policy.
-
-.. figure:: assets/bot_config_apply.png
-
-To complete the configuration of load balancer, click **Save and Exit**.
-
-.. figure:: assets/bot_lb_save.png
-
-Now we can test and see the end-result of our setup. Go back to the Test Tool  `<https://test-tool.sr.f5-cloud-demo.com>`_, and click **GENERATE BOT TRAFFIC**. This time we will see **blocked** status.  
-
-.. figure:: assets/test_bot_2.png
-
-Now let’s have a look at the Security analytics for the HTTP Load Balancer where we configured Bot Defense. Navigate to **Dashboards**, then **Security Dashboard** and click on the load balancer name.
-
-.. figure:: assets/bot_dashboard_0.png
-
-Navigate to the **Bot Defense** tab. Here we will see key info breaking down: which bots are making the most malicious requests, which endpoints are attacked the most, and which automation types are being used the most. 
-
-.. figure:: assets/bot_dashboard_1.png
-
-Then move on to the **Security Events** tab. Here we can go into detail on the HTTP Load Balancer traffic from the point of view of Bot traffic analytics. From transactions per minute for a specified timeframe, to detail of every HTTP request with inference of whether it is a legitimate user or automation traffic.
-
-.. figure:: assets/bot_dashboard_2.png
-
-
-DDoS Protection
-***************
-
-F5 Distributed Cloud WAAP is monitoring traffic and is able to identify multiple types of security events, including DDoS attacks directed towards our application as DDoS Security Events. This provides critical intelligence of your app security at your fingertips.
-
-In this demo we will configure DDoS protection by specifying IP Reputation and rate limiting for the sample app. Then we will add DDoS mitigation rule to block users by IP source defining expiration timestamp. 
-
-Navigate to **HTTP Load Balancers**, open the menu of the load balancer we created earlier and select **Manage Configuration**. 
-
-.. figure:: assets/ddos_lb_popup.png
-
-Click **Edit Configuration** to start editing the load balancer.
-
-.. figure:: assets/ddos_lb_edit.png
-
-
-In the **Common Security Controls** section enable **IP Reputation** and choose IP threat categories. We select **Spam Sources, Denial of service, Anonymous Proxies, Tor Proxy** and **Botnets** for this demo.
-
-.. figure:: assets/ddos_ip_reputation.png
-
-In order to configure rate limiting, select **Custom Rate Limiting Parameters** in the drop-down menu of rate limiting and click **View Configuration**.
-
-.. figure:: assets/ddos_rate_limiting_select.png
-
-First specify number, then burst multiplier. For this use-case we specify **10** and **5** respectively. Click **Apply** to proceed. 
-
-.. figure:: assets/ddos_rate_limit_config.png
-
-In the **DoS Protection** section enable DDoS detection in the drop-down menu and click **Configure** to add a new rule.
-
-.. figure:: assets/ddos_detection.png
-
-
-Next click the **Add Item** button to open the form where we will create an ‘IP Source’ mitigation rule.
-
-.. figure:: assets/ddos_mitigation_add.png
-
-Give rule a name, specify IP we want to block - **203.0.113.0/24** and indicate the expiration time stamp. Finally, click the **Apply** which will create our DDoS Mitigation rule.
-
-.. figure:: assets/ddos_mitigation_rule.png
-
-Click **Apply** to apply the rule we've created.
-
-.. figure:: assets/ddos_mitigation_rule_apply.png
-
-And finally we need to click **Save and Exit** to save these changes and allow the F5 Distributed Cloud WAF engine to start enforcing our newly created DDoS Mitigation rule and blocking the malicious IP.
-
-.. figure:: assets/ddos_save_lb.png
-
-See how easy that was! This should definitely help with the performance and uptime of our application!
-
-We have created the service policy to block that malicious IP. Now let’s have a look at the reporting and analytics for the HTTP Load Balancer where we configured the policy for our app. 
-
-Here we can see all of our app's critical security info in one place. Take a look at the **Security Events** section in the screenshot below showing all the events including the DDoS ones. Notice in the **DDoS Security Events** section we now see blocked traffic from the IP address we specified earlier. We can also see the map of security events giving clear visual security event distribution.
-
-.. figure:: assets/ddos_demo_1.png
-
-In the screenshot below you can see the analytics for our simulated traffic and attacks. See the impact of attacks on each endpoint by hovering over an endpoint on the map. We can also get insights into Top IPs, Regions, ASNs and TLS FPs. 
-
-.. figure:: assets/ddos_demo_2.png
 
 Wrap-Up
 #######
 
-At this stage you should have set up a sample app and sent traffic to it. You've configured and applied F5 Distributed Cloud WAAP services in order to protect both the Web & API of the app from malicious actors & bots. We also looked at the telemetry and insights from the data in the various Dashboards & security events.
+在這個階段，您應該已經設置了一個示例應用並向其發送了流量。您已經配置並應用了F5分布式雲WAAP服務，以保護應用的Web和API免受惡意用戶和機器人的攻擊。我們還查看了各種儀表板和安全事件中數據的遙測和洞察。
 
-We hope you have a better understanding of the F5 Distributed Cloud WAAP services and are now ready to implement it for your own organization. Should you have any issues or questions, please feel free to raise them via GitHub. Thank you!
+我們希望您對F5分布式雲WAAP服務有了更好的理解，並且現在已經準備好為您自己的組織實施它。如果您有任何問題或疑問，請隨時通過GitHub提出。謝謝！
